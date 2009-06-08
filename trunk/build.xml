@@ -1,0 +1,48 @@
+<?xml version='1.0'?>
+<project name="KPI - biblioteka pomocna przy raportowaniu wskaznikow procesu" default="compile" basedir=".">
+   <path id="compile.classpath">
+        <fileset dir="lib">
+    		<include name="**/*.jar"/>
+    	</fileset>		
+   </path>
+ 
+   <target name="init">
+		<mkdir dir="dist" />	
+		<mkdir dir="build" />
+   </target>
+
+   <target name="clean" >
+    <delete dir="dist" />
+	<delete dir="build" />
+	<mkdir dir="dist" />	
+	<mkdir dir="build" />
+   </target>
+
+   <!-- zadanie kompilacji -->
+   <target name="compile">       
+		<javac srcdir="src" destdir="build" classpathref="compile.classpath" debug="true"/>
+   </target>
+   
+   <target name="build" depends="compile">       
+	
+   </target>
+   
+   <target name="javadoc">      
+		<delete dir="docs" />
+		<mkdir dir="docs" />
+		<javadoc
+           destdir="docs"
+           author="true"
+           version="true"
+           use="true"
+           windowtitle="KPI API"
+		   classpathref="compile.classpath">
+			<packageset dir="src" defaultexcludes="yes">
+				<include name="**"/>
+			</packageset>
+		</javadoc>
+   </target>
+   
+   <target name="test">       
+   </target>
+</project>
