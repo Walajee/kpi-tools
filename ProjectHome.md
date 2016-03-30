@@ -1,0 +1,1 @@
+Set of usefull functions needed to count KPI statistic (such as working time duration)
